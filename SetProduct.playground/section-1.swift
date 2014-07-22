@@ -56,6 +56,3 @@ for e in setProduct(["a", "b", "c"], 4...8) {
 for e in setProduct(["a", "b", "c"], 4...8, [true, false]) {
     println(e)
 }
-
-let x: Any = (1,2,3)
-reflect(x)[0].1.value
