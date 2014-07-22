@@ -1,4 +1,11 @@
 SwiftSetProduct
 ===============
 
-Generic Set Product implemented in Swift
+Generic set product implemented in Swift
+
+Limitations:
+
+- Only can multiply 2 or 3 sets
+- No set exponenent
+- Tuple's must be manually wrapped in CollectionFromTuple()
+- Won't work with sets containing nil
