@@ -48,11 +48,43 @@ func setProduct<AT: Sequence, BT: Sequence, CT: Sequence>(a: AT, b: BT, c: CT) -
     }
 }
 
+class CollectionFromTuple: Collection {
+    let target:Mirror
+    init(_ target:Any){
+        self.target = reflect(target)
+    }
+    subscript (i: Int) -> Any {
+        get{
+            return target[i].1.value
+        }
+    }
+    var startIndex: Int {
+    get{
+        return 0
+    }
+    }
+    var endIndex: Int {
+    get{
+        return target.count
+    }
+    }
+    func generate() -> GeneratorOf<Any>{
+        var index = 0
+        return GeneratorOf<Any> {
+            if index >= self.target.count {
+                return nil
+            }
+            let ret = self[index]
+            ++index
+            return ret
+        }
+    }
+}
 
 for e in setProduct(["a", "b", "c"], 4...8) {
     println(e)
 }
 
-for e in setProduct(["a", "b", "c"], 4...8, [true, false]) {
+for e in setProduct(CollectionFromTuple(("a", "b", "c")), 4...8, [true, false]) {
     println(e)
 }
