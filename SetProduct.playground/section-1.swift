@@ -88,3 +88,8 @@ for e in setProduct(["a", "b", "c"], 4...8) {
 for e in setProduct(CollectionFromTuple(("a", "b", "c")), 4...8, [true, false]) {
     println(e)
 }
+//fails
+let listWithNils:[Int?] = [1, nil, 3]
+for e in setProduct(listWithNils, [true, false], CollectionFromTuple(("a", "b", "c"))) {
+    println(e)
+}
