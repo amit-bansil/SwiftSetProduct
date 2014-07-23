@@ -1,4 +1,4 @@
-SwiftSetProduct
+Swift SetProduct
 ===============
 
 Generic set product implemented in Swift
